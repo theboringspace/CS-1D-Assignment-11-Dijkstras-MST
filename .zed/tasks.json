@@ -1,0 +1,18 @@
+[
+  {
+    "label": "Build (release)",
+    "command": "cmake --build --preset release",
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Run DijkstrasAlgorithm (release)",
+    "command": "./build-release/DijkstrasAlgorithm.exe",
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  }
+]
