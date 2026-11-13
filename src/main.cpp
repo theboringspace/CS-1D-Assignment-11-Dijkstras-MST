@@ -10,6 +10,9 @@
 #include "Graph.h"
 #include "GraphLoader.h"
 
+#include "Dijkstra.h"
+
+void displayDijkstra(const Graph& graph, const std::string& start);
 
 int main()
 {
@@ -21,6 +24,10 @@ int main()
         initializeGraphVertices(cities, "data/Vertices.txt");
         initializeGraphEdges(cities, "data/Edges.txt");
         cities.printInfo();
+
+        displayDijkstra(cities, "Denver");
+        displayDijkstra(cities, "Miami");
+
     }
     catch (const std::exception& e)
     {
@@ -28,9 +35,25 @@ int main()
         return EXIT_FAILURE;
     }
 
-
-
-
-
     return EXIT_SUCCESS;
+}
+
+void displayDijkstra(const Graph& graph, const std::string& start)
+{
+    ShortestPaths paths{Dijkstra::dijkstra(graph, graph.indexOf(start))};
+
+    std::println("Paths from {} to everything else:", start);
+    for (int target{0}; target < graph.vertexCount(); ++target)
+    {
+        if (target == graph.indexOf(start)) continue;
+
+        std::vector<int> path{Dijkstra::pathTo(paths, target)};
+
+        std::print("{}", start);
+        for (auto it = path.cbegin() + 1; it != path.cend(); ++it)
+        {
+            std::print(" -> {} ", graph.nameOf(*it));
+        }
+        std::println("\nTotal Distance: {} mi", paths.distances[target]);
+    }
 }
