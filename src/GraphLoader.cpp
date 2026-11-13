@@ -18,11 +18,8 @@ void initializeGraphVertices(Graph& graph, const std::string& file)
     if (!input) throw std::runtime_error("Could not open file: " + file);
 
     std::string line;
-    int lineNumber{0};
     while (std::getline(input, line))
     {
-        ++lineNumber;
-
         const std::string name{GraphLoader::trim(line)};
 
         // Skip blank lines (e.g. a trailing newline at the end of the file)

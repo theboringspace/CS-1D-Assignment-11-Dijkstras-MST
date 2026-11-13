@@ -86,7 +86,7 @@ void Graph::printInfo() const
         for (const auto& neighbor : neighbors(indexOf(name)))
         {
             const std::string neighborName = nameOf(neighbor.to);
-            const int neighborWeight       = neighbor.weight;
+            const double neighborWeight       = neighbor.weight;
 
             const std::string outputString = "[" + neighborName + "(" + std::to_string(neighborWeight) + ")" + "]";
 
