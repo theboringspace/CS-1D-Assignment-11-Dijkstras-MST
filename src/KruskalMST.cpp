@@ -6,11 +6,14 @@
 #include <utility>
 #include <functional>
 
+// Stores edge weight and end vertices' indices
 using KruskalEntry = std::pair<double, std::pair<int, int>>;
 
+// Min heap based priority queue which processes edges in nondecreasing order by weight
 using KruskalPQ = std::priority_queue<KruskalEntry, std::vector<KruskalEntry>, std::greater<KruskalEntry>>;
 
-MinimumSpanningTree kruskal(const Graph& graph)
+// Minimum Spanning tree using Kruskal's algorithm
+MinimumSpanningTree kruskalMST(const Graph& graph)
 {
     int n = graph.vertexCount();
     MinimumSpanningTree mst;
@@ -28,20 +31,25 @@ MinimumSpanningTree kruskal(const Graph& graph)
     {
         for(const auto& edge : graph.neighbors(u))
         {
+            // Inserts an undirected edge only once
             if(u < edge.to)
                 edges.push({edge.weight, {u, edge.to}});
         }
     }
 
+    // Processes edges until MST is complete or priority queue is empty
     while(!edges.empty() && mst.edges.size() < static_cast<std::size_t>(n - 1))
     {
+        // Remove edge with smallest weight
         KruskalEntry edge = edges.top();
         edges.pop();
 
+        // Obtain edge weight and endpoint indices
         double weight = edge.first;
         int u = edge.second.first;
         int v = edge.second.second;
 
+        // Add edge to MST if the two clusters are different
         if(partition.unionSets(u, v))
         {
             mst.edges.push_back({u, v, weight});

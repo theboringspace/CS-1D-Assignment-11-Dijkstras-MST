@@ -3,11 +3,11 @@
 #include <vector>
 #include <algorithm>
 
-//Tree based implementation of Partition ADT
+/// Tree based implementation of Partition ADT
 class Partition 
 {
     public:
-        //construct partition of n elements, initializing n disjoint sets
+        /// Constructs a partition of n elements, initializing n disjoint sets
         explicit Partition(int n);
 
         int find(int v);
@@ -18,14 +18,14 @@ class Partition
         std::vector<int> rank;
 };
 
-//initialize partition of n disjoint sets
+/// Initialize partition of n disjoint sets
 inline Partition::Partition(int n) : parent(n), rank(n, 0)
 {
    for(int v = 0; v < n; v++)
         parent[v] = v;
 }
 
-//recursively finds the root with path compression
+/// Recursively finds the root of a set using path compression
 inline int Partition::find(int v)
 {
     if(parent[v] != v)
@@ -34,6 +34,7 @@ inline int Partition::find(int v)
     return parent[v];
 }
 
+/// Merges two disjoint sets using union by rank
 inline bool Partition::unionSets(int u, int v)
 {
     int rootU = find(u);

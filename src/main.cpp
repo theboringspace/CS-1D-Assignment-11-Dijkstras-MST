@@ -11,8 +11,10 @@
 #include "GraphLoader.h"
 
 #include "Dijkstra.h"
+#include "KruskalMST.h"
 
 void displayDijkstra(const Graph& graph, const std::string& start);
+void displayKruskal(const Graph& graph);
 
 int main()
 {
@@ -27,6 +29,8 @@ int main()
 
         displayDijkstra(cities, "Denver");
         displayDijkstra(cities, "Miami");
+
+        displayKruskal(cities);
 
     }
     catch (const std::exception& e)
@@ -56,4 +60,21 @@ void displayDijkstra(const Graph& graph, const std::string& start)
         }
         std::println("\nTotal Distance: {} mi", paths.distances[target]);
     }
+}
+
+void displayKruskal(const Graph& graph)
+{
+    MinimumSpanningTree mst = kruskalMST(graph);
+
+    std::println("\nMinimum Spanning Tree:");
+
+    for(const auto& edge : mst.edges)
+    {
+        std::println("{} -- {} : {} mi", 
+                     graph.nameOf(edge.from),       
+                     graph.nameOf(edge.to),
+                     edge.weight);
+    }
+
+    std::println("Total Mileage: {} mi", mst.totalWeight);
 }
