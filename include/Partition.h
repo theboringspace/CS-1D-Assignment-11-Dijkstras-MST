@@ -1,3 +1,6 @@
+/// @file   Partition.h
+/// @brief  Union-find (Partition ADT) with path compression and union by rank.
+
 #pragma once
 
 #include <vector>

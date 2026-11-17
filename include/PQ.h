@@ -1,3 +1,6 @@
+/// @file   PQ.h
+/// @brief  Min-priority-queue type aliases (distance, vertex) used by Dijkstra.
+
 #pragma once
 
 #include <queue>

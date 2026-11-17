@@ -1,3 +1,6 @@
+/// @file   Graph.h
+/// @brief  Undirected weighted adjacency-list graph with name/index vertex lookup.
+
 #pragma once
 
 #include <unordered_map>

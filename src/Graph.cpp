@@ -1,5 +1,6 @@
 #include "Graph.h"
 
+#include <format>
 #include <print>
 #include <stdexcept>
 #include <algorithm>
@@ -85,17 +86,14 @@ void Graph::printInfo() const
         std::print("{:<20}{:<15}", name, index);
         for (const auto& neighbor : neighbors(indexOf(name)))
         {
-            const std::string neighborName = nameOf(neighbor.to);
-            const double neighborWeight       = neighbor.weight;
-
-            const std::string outputString = "[" + neighborName + "(" + std::to_string(neighborWeight) + ")" + "]";
+            const std::string outputString = std::format("[{}({})]", nameOf(neighbor.to), neighbor.weight);
 
             std::print("{:<25}", outputString);
         }
         std::println();
     }
 
-    std::println("# of vertices: {}", vertexCount());
+    std::println("\n# of vertices: {}", vertexCount());
     std::println("# of edges: {}", edgeCount());
 }
 

@@ -1,0 +1,20 @@
+{
+  "title":  "Assignment 11 - Dijkstra's Algorithm and Minimum Spanning Tree",
+  "course": "CS 1D",
+  "authors": "Giaren Portera & Cristal Damian",
+  "output": "Assignment_11.pdf",
+  "files": [
+    "include/Dijkstra.h",
+    "include/Graph.h",
+    "include/GraphLoader.h",
+    "include/KruskalMST.h",
+    "include/Partition.h",
+    "include/PQ.h",
+    "src/Dijkstra.cpp",
+    "src/Graph.cpp",
+    "src/GraphLoader.cpp",
+    "src/KruskalMST.cpp",
+    "src/main.cpp",
+    "Output.txt"
+  ]
+}

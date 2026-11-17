@@ -1,0 +1,52 @@
+======================================================================
+GRAPH INFORMATION
+======================================================================
+NAME                INDEX          NEIGHBORS
+Seattle             0              [Chicago(2097)]          [Denver(1331)]           [San Francisco(807)]
+San Francisco       1              [Los Angeles(381)]       [Seattle(807)]           [Denver(1267)]
+Los Angeles         2              [Dallas(1435)]           [Kansas City(1663)]      [Denver(1015)]           [San Francisco(381)]
+Denver              3              [Seattle(1331)]          [San Francisco(1267)]    [Chicago(1003)]          [Kansas City(599)]       [Los Angeles(1015)]
+Kansas City         4              [New York(1260)]         [Chicago(533)]           [Denver(599)]            [Los Angeles(1663)]      [Dallas(496)]            [Atlanta(864)]
+Dallas              5              [Houston(239)]           [Atlanta(781)]           [Kansas City(496)]       [Los Angeles(1435)]
+Houston             6              [Miami(1187)]            [Atlanta(810)]           [Dallas(239)]
+Miami               7              [Atlanta(661)]           [Houston(1187)]
+Atlanta             8              [New York(888)]          [Miami(661)]             [Houston(810)]           [Dallas(781)]            [Kansas City(864)]
+New York            9              [Boston(214)]            [Chicago(787)]           [Kansas City(1260)]      [Atlanta(888)]
+Boston              10             [Chicago(983)]           [New York(214)]
+Chicago             11             [Seattle(2097)]          [Denver(1003)]           [Boston(983)]            [New York(787)]          [Kansas City(533)]
+
+# of vertices: 12
+# of edges: 23
+
+======================================================================
+DIJKSTRA'S ALGORITHM RESULT STARTING AT DENVER
+======================================================================
+DESTINATION         DISTANCE       PATH
+Seattle             1331 mi        Denver -> Seattle
+San Francisco       1267 mi        Denver -> San Francisco
+Los Angeles         1015 mi        Denver -> Los Angeles
+Kansas City         599 mi         Denver -> Kansas City
+Dallas              1095 mi        Denver -> Kansas City -> Dallas
+Houston             1334 mi        Denver -> Kansas City -> Dallas -> Houston
+Miami               2124 mi        Denver -> Kansas City -> Atlanta -> Miami
+Atlanta             1463 mi        Denver -> Kansas City -> Atlanta
+New York            1790 mi        Denver -> Chicago -> New York
+Boston              1986 mi        Denver -> Chicago -> Boston
+Chicago             1003 mi        Denver -> Chicago
+
+======================================================================
+MINIMUM SPANNING TREE RESULT
+======================================================================
+New York -- Boston : 214 mi
+Dallas -- Houston : 239 mi
+San Francisco -- Los Angeles : 381 mi
+Kansas City -- Dallas : 496 mi
+Kansas City -- Chicago : 533 mi
+Denver -- Kansas City : 599 mi
+Miami -- Atlanta : 661 mi
+Dallas -- Atlanta : 781 mi
+New York -- Chicago : 787 mi
+Seattle -- San Francisco : 807 mi
+Los Angeles -- Denver : 1015 mi
+
+Total Mileage: 6513 mi

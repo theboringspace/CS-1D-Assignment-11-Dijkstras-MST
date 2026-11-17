@@ -1,3 +1,6 @@
+/// @file   Dijkstra.h
+/// @brief  Dijkstra's single-source shortest paths and path reconstruction.
+
 #pragma once
 
 #include <vector>

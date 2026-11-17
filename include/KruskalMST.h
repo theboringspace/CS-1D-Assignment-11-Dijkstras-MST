@@ -1,3 +1,6 @@
+/// @file   KruskalMST.h
+/// @brief  Kruskal's algorithm for the graph's minimum spanning tree.
+
 #pragma once
 
 #include <vector>

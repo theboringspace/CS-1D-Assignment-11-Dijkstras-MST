@@ -1,3 +1,6 @@
+/// @file   GraphLoader.h
+/// @brief  Loads graph vertices and edges from text files, plus parsing helpers.
+
 #pragma once
 
 #include <string>
